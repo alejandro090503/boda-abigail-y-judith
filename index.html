@@ -91,6 +91,10 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .hc-bl{bottom:-1px;left:-1px;transform:scaleY(-1)}
 .hc-br{bottom:-1px;right:-1px;transform:scale(-1)}
 .hero-content{position:relative;z-index:2;text-align:center;padding:0 32px}
+.hero-seal{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;background:radial-gradient(circle,rgba(191,146,128,.15) 0%,transparent 70%);position:relative}
+.hero-seal::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1.5px solid rgba(247,165,151,.35);opacity:.7}
+.hero-seal::after{content:'';position:absolute;inset:0;border-radius:50%;box-shadow:0 0 30px 8px rgba(191,146,128,.2),0 0 60px 16px rgba(191,146,128,.08)}
+.hero-seal img{width:78px;height:auto;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4)) brightness(1.15);pointer-events:none}
 .hero-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:17px;letter-spacing:.2em;text-transform:uppercase;color:#f7a597;display:block;margin-bottom:20px;text-shadow:0 1px 10px rgba(0,0,0,.7)}
 .hero-bride,.hero-groom{font-family:'Great Vibes',cursive;font-size:clamp(68px,21vw,94px);color:#FEFCF8;line-height:1;display:block;text-shadow:0 2px 20px rgba(0,0,0,.4),0 1px 6px rgba(0,0,0,.3)}
 .hero-amp{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:38px;color:#f7a597;display:block;margin:.12em 0;text-shadow:0 1px 10px rgba(0,0,0,.6)}
@@ -268,6 +272,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
       <div class="hero-corner hc-br"><svg viewBox="0 0 24 24" fill="none"><path d="M1 1L1 11M1 1L11 1" stroke="#bf9280" stroke-width="1.4" opacity=".7"/></svg></div>
     </div>
     <div class="hero-content">
+      <div class="hero-seal rv"><img src="monograma.png" alt="A&J" /></div>
       <span class="hero-tag rv">Mazatlán, Sinaloa · 2026</span>
       <span class="hero-bride rv">Abigail</span>
       <span class="hero-amp rv">y</span>
