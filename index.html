@@ -335,10 +335,6 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
       <span class="loc-venue-lbl">Hora</span>
       <div class="loc-venue">3:00 p.m.</div>
       <div class="loc-row">
-        <svg class="loc-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        <div class="loc-txt"><strong>3:00 p.m.</strong> · Cóctel de Bienvenida</div>
-      </div>
-      <div class="loc-row">
         <svg class="loc-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="none"/></svg>
         <div class="loc-txt" style="font-size:16px;opacity:.75">P.º del Centenario 218, Cerro del Vigía</div>
       </div>
@@ -360,7 +356,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
   <section class="sec rv" style="text-align:center;overflow:hidden">
     <div class="sec-bg" style="background-image:url('botanica1.png');opacity:.14"></div>
     <span class="eyebrow">Programa del Día</span>
-    <h2 class="heading-sm">Itinerario</h2>
+    <h2 class="heading-sm" style="color:#722f37">Itinerario</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <div class="itin-list">
       <div class="itin-item rv"><div class="itin-dot"></div><div class="itin-time">3:00 p.m.</div><div class="itin-ev">Cóctel de Bienvenida</div></div>
@@ -375,7 +371,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
   <!-- DRESS CODE -->
   <section class="sec rv" style="text-align:center;background:var(--surface)">
     <span class="eyebrow">Código de Vestimenta</span>
-    <h2 class="heading-sm">Semi-Formal Jardín</h2>
+    <h2 class="heading-sm" style="color:#722f37">Semi-Formal Jardín</h2>
     <div class="orn" style="margin-top:16px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <p class="dc-text" style="margin-top:22px">Te invitamos a vestir cómodo y elegante<br>para disfrutar de nuestra celebración al aire libre.</p>
     <div class="dc-cols rv">
@@ -433,7 +429,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <div class="wheel-scene rv" id="wheel-scene">
       <div class="wheel-ring" id="wheel-ring">
         <div class="wheel-card"><img src="portada.jpg" alt="Abigail y Judith" loading="lazy" /></div>
-        <div class="wheel-card"><img src="foto2.jpg" alt="Abigail y Judith" loading="lazy" /></div>
+        <div class="wheel-card"><img src="foto7.jpg" alt="Abigail y Judith" loading="lazy" /></div>
         <div class="wheel-card"><img src="foto3.jpg" alt="Abigail y Judith" loading="lazy" /></div>
         <div class="wheel-card"><img src="foto4.jpg" alt="Abigail y Judith" loading="lazy" /></div>
         <div class="wheel-card"><img src="foto5.jpg" alt="Abigail y Judith" loading="lazy" /></div>
@@ -454,7 +450,8 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
         <span class="gift-bank-lbl">BBVA</span>
         <span class="gift-bank-name">Rocío Abigail Lara Blanco</span>
         <div class="gift-detail">
-          <strong>Tarjeta</strong> 4152 3143 6276 4634
+          <strong>Tarjeta</strong> 4152 3143 6276 4634<br>
+          <strong>Cuenta</strong> 012 730 02893183688 7
         </div>
         <button class="btn-copy" onclick="copyText('4152 3143 6276 4634')">
           <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
@@ -475,7 +472,7 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
   <section class="sec rv" style="text-align:center;overflow:hidden">
     <div class="sec-bg" style="background-image:url('botanica3.png');opacity:.18;background-position:bottom center;background-size:75%"></div>
     <span class="eyebrow">Confirmación</span>
-    <h2 class="heading-sm">¿Nos acompañas?</h2>
+    <h2 class="heading-sm" style="color:#722f37">¿Nos acompañas?</h2>
     <div class="orn" style="margin-top:16px;margin-bottom:24px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <span class="rsvp-deadline">Confirma antes del 1 de Septiembre · 2026</span>
     <div id="rsvpPasesNote" class="rv" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:17px;color:var(--gold);margin-bottom:18px"></div>
@@ -572,7 +569,11 @@ function initEnvelope(){
   function startAudio(){
     if(playing)return;
     audio.volume=.55;
-    audio.play().then(()=>{playing=true;fab.classList.add('playing');}).catch(()=>{});
+    audio.load();
+    var p=audio.play();
+    if(p&&p.then){p.then(()=>{playing=true;fab.classList.add('playing');}).catch(()=>{
+      audio.addEventListener('canplaythrough',function h(){audio.removeEventListener('canplaythrough',h);audio.play().then(()=>{playing=true;fab.classList.add('playing');}).catch(()=>{});},false);
+    });}
   }
   window._startAudio=startAudio;
   fab.addEventListener('click',()=>{
