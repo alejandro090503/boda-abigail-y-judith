@@ -199,20 +199,44 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
 .wheel-card img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none}
 .gal-hint{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;font-weight:500;letter-spacing:3px;color:var(--accent);margin-top:24px;opacity:.8}
 
-/* ── RSVP ── */
-.rsvp-deadline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;letter-spacing:.5px;color:var(--gold);margin-bottom:26px;display:block;text-align:center}
-.rsvp-field{margin-bottom:18px}
-.rsvp-field label{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.3px;color:var(--dark);margin-bottom:10px;opacity:.9}
-.rsvp-field input,.rsvp-field select{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:14px 16px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--text);outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
-.rsvp-field input:focus,.rsvp-field select:focus{border-color:var(--accent)}
-.rsvp-toggle{display:flex;gap:10px;margin-top:4px}
-.rsvp-toggle-btn{flex:1;padding:14px 8px;border-radius:4px;border:1px solid var(--border);background:var(--surface);cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text);transition:all .25s}
-.rsvp-toggle-btn.selected-yes{background:rgba(171,92,92,.1);border-color:var(--accent);color:var(--accent)}
-.rsvp-toggle-btn.selected-no{background:rgba(191,146,128,.07);border-color:var(--gold);color:var(--gold)}
-.btn-rsvp{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin-top:6px;background:#ab5c5c;color:#FFF9F7;border:none;cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:18px;letter-spacing:.05em;padding:17px 24px;border-radius:50px;transition:background .3s}
-.btn-rsvp:hover{background:#722f37}
-.btn-rsvp:disabled{opacity:.5;cursor:not-allowed}
-.btn-rsvp svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+/* ── RSVP (estilo jennifer) ── */
+#rsvp-section{position:relative;overflow:hidden;padding:min(11vh,88px) 32px}
+.rsvp-card{max-width:420px;margin:0 auto;background:rgba(255,255,255,.84);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(191,146,128,.38);padding:clamp(40px,6vw,64px) clamp(24px,5vw,48px);position:relative;box-shadow:0 24px 64px rgba(58,37,37,.10),0 4px 20px rgba(191,146,128,.14)}
+.rsvp-card::before{content:"";position:absolute;inset:10px;border:1px solid rgba(191,146,128,.20);pointer-events:none}
+.rsvp-corner{position:absolute;width:44px;height:44px;pointer-events:none}
+.rsvp-corner--tl{top:0;left:0}
+.rsvp-corner--tr{top:0;right:0;transform:scaleX(-1)}
+.rsvp-corner--bl{bottom:0;left:0;transform:scaleY(-1)}
+.rsvp-corner--br{bottom:0;right:0;transform:scale(-1,-1)}
+.rsvp-inner{text-align:center}
+.rsvp-ornament{display:block;margin:0 auto 24px;width:min(240px,75vw);height:auto}
+.rsvp-title{font-family:'Great Vibes',cursive;font-size:clamp(32px,9vw,46px);color:var(--dark);margin-bottom:14px;line-height:1.15}
+.rsvp-title em{color:#722f37;font-style:normal}
+.rsvp-text{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,1.5vw,17px);color:var(--text);line-height:1.85;margin-bottom:28px;font-weight:500;max-width:360px;margin-left:auto;margin-right:auto;opacity:.8}
+.rsvp-divider{display:flex;align-items:center;gap:14px;margin-bottom:26px;max-width:280px;margin-left:auto;margin-right:auto}
+.rsvp-divider::before,.rsvp-divider::after{content:"";flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(191,146,128,.45),transparent)}
+.rsvp-divider-heart{color:var(--gold);flex-shrink:0;opacity:.8}
+.rsvp-pases-display{max-width:360px;margin:0 auto 24px;padding:18px 28px;background:rgba(191,146,128,.08);border:1px solid rgba(191,146,128,.28);border-radius:12px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.rsvp-pases-label{font-family:'Italiana',serif;font-size:11px;font-weight:600;letter-spacing:.35em;text-transform:uppercase;color:var(--text);opacity:.7}
+.rsvp-pases-num{font-family:'Great Vibes',cursive;font-size:clamp(36px,9vw,48px);color:#722f37;line-height:1}
+.rsvp-toggle{display:flex;gap:10px;max-width:360px;margin:0 auto 20px}
+.rsvp-toggle-btn{flex:1;padding:14px 8px;border:1.5px solid rgba(191,146,128,.28);background:rgba(255,255,255,.6);cursor:pointer;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text);border-radius:8px;transition:all .25s}
+.rsvp-toggle-btn:disabled{opacity:.45;cursor:not-allowed}
+.rsvp-toggle-btn.selected-yes{background:rgba(114,47,55,.10);border-color:#722f37;color:#722f37}
+.rsvp-toggle-btn.selected-no{background:rgba(191,146,128,.09);border-color:var(--gold);color:var(--gold)}
+.rsvp-fields{display:flex;flex-direction:column;gap:10px;max-width:360px;margin:0 auto 20px}
+.rsvp-input{width:100%;padding:15px 20px;border:1.5px solid rgba(191,146,128,.28);border-radius:12px;background:rgba(255,255,255,.78);font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--text);letter-spacing:.03em;outline:none;transition:border-color .3s,box-shadow .3s;-webkit-appearance:none;min-height:50px}
+.rsvp-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(191,146,128,.15);background:rgba(255,255,255,.96)}
+.rsvp-input::placeholder{color:var(--text);opacity:.5;font-weight:400}
+.rsvp-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:360px;margin:0 auto;padding:18px 36px;border-radius:50px;border:1.5px solid rgba(191,146,128,.5);background:linear-gradient(135deg,rgba(191,146,128,.18) 0%,rgba(247,165,151,.22) 100%);font-family:'Italiana',serif;font-size:12px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--dark);cursor:pointer;min-height:54px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 6px 20px rgba(191,146,128,.25),0 2px 8px rgba(191,146,128,.18)}
+.rsvp-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--gold) 0%,#f7a597 50%,var(--gold) 100%);opacity:0;transition:opacity .4s;border-radius:50px}
+.rsvp-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(191,146,128,.3)}
+.rsvp-btn:hover::after{opacity:1}
+.rsvp-btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.rsvp-btn > *{position:relative;z-index:1}
+.rsvp-deadline{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:'Italiana',serif;font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);padding-left:.4em;font-weight:600}
+#rsvp-pases-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text);text-align:center;margin:0 auto 20px;max-width:360px;opacity:.8}
+#rsvp-feedback{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;text-align:center;margin:14px auto 0;max-width:360px;display:none}
 .rsvp-ok{display:none;text-align:center;padding:28px 16px}
 .rsvp-ok-icon{font-size:48px;margin-bottom:14px;display:block}
 .rsvp-ok-title{font-family:'Great Vibes',cursive;font-size:36px;color:var(--dark);margin-bottom:10px;display:block}
@@ -469,27 +493,62 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
   </section>
 
   <!-- RSVP -->
-  <section class="sec rv" style="text-align:center;overflow:hidden">
-    <div class="sec-bg" style="background-image:url('botanica3.png');opacity:.18;background-position:bottom center;background-size:75%"></div>
-    <span class="eyebrow">Confirmación</span>
-    <h2 class="heading-sm" style="color:#722f37">¿Nos acompañas?</h2>
-    <div class="orn" style="margin-top:16px;margin-bottom:24px"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
-    <span class="rsvp-deadline">Confirma antes del 1 de Septiembre · 2026</span>
-    <div id="rsvpPasesNote" class="rv" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:17px;color:var(--gold);margin-bottom:18px"></div>
-    <div class="card rv" style="max-width:380px;margin:0 auto;text-align:left" id="rsvpCard">
-      <div id="namesContainer"></div>
-      <div class="rsvp-field">
-        <label>¿Asistirás?</label>
+  <section id="rsvp-section" class="rv">
+    <div class="rsvp-card">
+      <svg class="rsvp-corner rsvp-corner--tl" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="var(--gold)" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="var(--gold)" opacity=".5"/></svg>
+      <svg class="rsvp-corner rsvp-corner--tr" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="var(--gold)" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="var(--gold)" opacity=".5"/></svg>
+      <svg class="rsvp-corner rsvp-corner--bl" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="var(--gold)" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="var(--gold)" opacity=".5"/></svg>
+      <svg class="rsvp-corner rsvp-corner--br" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="var(--gold)" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="var(--gold)" opacity=".5"/></svg>
+
+      <div class="rsvp-inner" id="rsvpCard">
+        <svg class="rsvp-ornament" viewBox="0 0 320 56" fill="none" aria-hidden="true">
+          <g stroke="var(--gold)" stroke-width=".9" opacity=".8" fill="none">
+            <path d="M18 28 Q50 10 82 28 Q106 42 130 28"/>
+            <path d="M190 28 Q214 42 238 28 Q270 10 302 28"/>
+            <circle cx="160" cy="28" r="5.5"/>
+            <circle cx="160" cy="28" r="2" fill="var(--gold)" stroke="none"/>
+            <path d="M148 28 L154 28" opacity=".5"/>
+            <path d="M166 28 L172 28" opacity=".5"/>
+            <path d="M154 20 Q160 13 166 20" opacity=".55"/>
+            <path d="M154 36 Q160 43 166 36" opacity=".55"/>
+          </g>
+        </svg>
+
+        <span class="eyebrow">Confirmación</span>
+        <h2 class="rsvp-title">¿Nos <em>acompañas</em>?</h2>
+        <p class="rsvp-text">Confirma tu asistencia para que podamos preparar todo con amor para este día tan especial.</p>
+
+        <div class="rsvp-divider">
+          <svg class="rsvp-divider-heart" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+        </div>
+
+        <p id="rsvpPasesNote"></p>
+
+        <div class="rsvp-pases-display" id="rsvp-pases-display">
+          <div class="rsvp-pases-label">Pases reservados</div>
+          <div class="rsvp-pases-num" id="rsvp-pases-num">1</div>
+        </div>
+
         <div class="rsvp-toggle">
-          <button class="rsvp-toggle-btn" id="btnYes" onclick="selectRsvp('yes')">¡Con mucho gusto!</button>
-          <button class="rsvp-toggle-btn" id="btnNo" onclick="selectRsvp('no')">No podré asistir</button>
+          <button class="rsvp-toggle-btn" id="btnYes" type="button" onclick="selectRsvp('yes')">¡Con mucho gusto!</button>
+          <button class="rsvp-toggle-btn" id="btnNo" type="button" onclick="selectRsvp('no')">No podré asistir</button>
+        </div>
+
+        <div class="rsvp-fields" id="namesContainer"></div>
+
+        <button class="rsvp-btn" id="btnEnviar" type="button" onclick="sendRsvp()">
+          <span id="rsvp-btn-text">Confirmar asistencia</span>
+        </button>
+
+        <p id="rsvp-feedback"></p>
+
+        <div class="rsvp-deadline">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
+          Confirma antes del 1 de Septiembre · 2026
         </div>
       </div>
-      <button class="btn-rsvp" id="btnEnviar" onclick="sendRsvp()">
-        <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
-        Confirmar asistencia
-      </button>
     </div>
+
     <div class="rsvp-ok" id="rsvpOk">
       <span class="rsvp-ok-icon">✨</span>
       <span class="rsvp-ok-title">¡Gracias!</span>
@@ -681,69 +740,127 @@ function initMain(){
   /* Gallery — 3D Wheel */
   initWheel();
 
-  /* RSVP — Panel de Invitados */
-  const urlParams=new URLSearchParams(window.location.search);
-  const invitadoNombre=urlParams.get('para')||'';
-  const urlPases=parseInt(urlParams.get('pases'))||1;
+  /* RSVP · PANEL INTEGRATION (patrón estándar) */
+  const PANEL_API = 'https://panel-invitados.vercel.app/api/confirmar';
+  const RSVP_URL  = 'https://boda-abigail-y-judith.vercel.app';
+  const DEADLINE  = new Date(2026, 8, 1, 23, 59, 59, 999);
+  const frozen    = Date.now() > DEADLINE.getTime();
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlPara   = (urlParams.get('para') || '').trim();
+  const rawP      = parseInt(urlParams.get('pases')) || 1;
+  let   urlPases  = (isNaN(rawP) || rawP < 1 || rawP > 20) ? 1 : rawP;
 
-  const note=document.getElementById('rsvpPasesNote');
-  if(note&&invitadoNombre){
-    note.textContent='✦ '+invitadoNombre+', tienes '+(urlPases===1?'1 pase reservado':urlPases+' pases reservados')+' ✦';
-  } else if(note){
-    const p=urlPases===1?'1 pase reservado para ti':`${urlPases} pases reservados para ti`;
-    note.textContent='✦ '+p+' ✦';
+  let savedNames = [];
+
+  const note = document.getElementById('rsvpPasesNote');
+  const pasesNumEl = document.getElementById('rsvp-pases-num');
+  function paintNote(){
+    if(pasesNumEl) pasesNumEl.textContent = urlPases;
+    if(!note) return;
+    if(urlPara){
+      note.textContent='✦ '+urlPara+', tienes '+(urlPases===1?'1 pase reservado':urlPases+' pases reservados')+' ✦';
+    } else {
+      note.textContent='✦ '+(urlPases===1?'1 pase reservado para ti':urlPases+' pases reservados para ti')+' ✦';
+    }
   }
+  paintNote();
 
   function renderNameFields(count){
     const c=document.getElementById('namesContainer');
     c.innerHTML='';
     for(let i=1;i<=count;i++){
-      const div=document.createElement('div');
-      div.className='rsvp-field';
-      const lbl=document.createElement('label');
-      lbl.textContent=i===1?(invitadoNombre||'Tu nombre completo'):'Acompañante '+(i-1);
       const inp=document.createElement('input');
       inp.type='text';
-      inp.className='rsvp-name-input';
-      inp.placeholder='Nombre y apellido';
-      inp.autocomplete='name';
-      if(i===1&&invitadoNombre){inp.value=invitadoNombre;}
-      div.appendChild(lbl);
-      div.appendChild(inp);
-      c.appendChild(div);
+      inp.className='rsvp-input rsvp-name-input';
+      inp.placeholder=i===1?(urlPara||'Tu nombre completo'):'Acompañante '+(i-1);
+      inp.autocomplete='off';
+      inp.maxLength=60;
+      const idx=i-1;
+      if(savedNames[idx]){
+        inp.value=savedNames[idx];
+      } else if(i===1 && urlPara){
+        inp.value=urlPara;
+        savedNames[0]=urlPara;
+      }
+      inp.addEventListener('input', function(){ savedNames[idx] = this.value; });
+      c.appendChild(inp);
     }
   }
   renderNameFields(urlPases);
 
   window.rsvpChoice='';
+  const btnYes = document.getElementById('btnYes');
+  const btnNo  = document.getElementById('btnNo');
+  const btnEnv = document.getElementById('btnEnviar');
+
+  if(urlPara){
+    btnYes.disabled = true;
+    btnNo.disabled  = true;
+  }
+
   window.selectRsvp=function(choice){
     window.rsvpChoice=choice;
-    document.getElementById('btnYes').className='rsvp-toggle-btn'+(choice==='yes'?' selected-yes':'');
-    document.getElementById('btnNo').className='rsvp-toggle-btn'+(choice==='no'?' selected-no':'');
+    btnYes.className='rsvp-toggle-btn'+(choice==='yes'?' selected-yes':'');
+    btnNo.className ='rsvp-toggle-btn'+(choice==='no'?' selected-no':'');
   };
 
-  window.sendRsvp=function(){
-    const inputs=document.querySelectorAll('.rsvp-name-input');
-    const first=inputs[0]?.value.trim();
-    if(!first){inputs[0]?.focus();return;}
-    if(!window.rsvpChoice){document.getElementById('btnYes').focus();return;}
-    const names=Array.from(inputs).map(i=>i.value.trim()).filter(n=>n);
-    const btn=document.getElementById('btnEnviar');
-    btn.disabled=true;
-    btn.innerHTML='Enviando...';
+  if(urlPara){
+    fetch(PANEL_API + '?nombre=' + encodeURIComponent(urlPara) + '&url_boda=' + encodeURIComponent(RSVP_URL))
+      .then(r => r.json())
+      .then(resp => {
+        const d = resp.invitado;
+        if(d && typeof d.pases === 'number' && d.pases > 0 && d.pases <= 20){
+          urlPases = d.pases;
+          paintNote();
+        }
+        btnYes.disabled = false;
+        btnNo.disabled  = false;
+        if(d && (d.estado === 'confirmado' || d.estado === 'declino')){
+          if(d.nombres_confirmados && d.nombres_confirmados.length){
+            savedNames = d.nombres_confirmados.slice();
+          }
+          renderNameFields(urlPases);
+          window.selectRsvp(d.estado === 'confirmado' ? 'yes' : 'no');
+          document.getElementById('rsvp-btn-text').textContent='Actualizar respuesta';
+        }
+      })
+      .catch(() => {
+        btnYes.disabled = false;
+        btnNo.disabled  = false;
+      });
+  }
 
-    fetch('https://panel-invitados.vercel.app/api/confirmar',{
+  if(frozen){
+    btnYes.disabled = true;
+    btnNo.disabled  = true;
+    btnEnv.disabled = true;
+    document.getElementById('rsvp-btn-text').textContent='Fecha límite alcanzada';
+  }
+
+  window.sendRsvp=function(){
+    if(frozen) return;
+    if(!window.rsvpChoice){ btnYes.focus(); return; }
+    const inputs=document.querySelectorAll('.rsvp-name-input');
+    const names=Array.from(inputs).map(i=>i.value.trim()).filter(n=>n);
+    if(window.rsvpChoice==='yes' && names.length===0){
+      inputs[0]?.focus();
+      return;
+    }
+    btnEnv.disabled=true;
+    document.getElementById('rsvp-btn-text').textContent='Enviando…';
+
+    fetch(PANEL_API,{
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        slug:'boda-abigail-y-judith',
-        nombre:first,
-        pases:urlPases,
-        asistencia:window.rsvpChoice==='yes'?'si':'no',
-        acompanantes:names.slice(1)
+        nombre: urlPara || (names[0] || 'Invitado'),
+        url_boda: RSVP_URL,
+        estado: window.rsvpChoice==='yes' ? 'confirmado' : 'declino',
+        pases_confirmados: window.rsvpChoice==='yes' ? names.length : 0,
+        nombres_confirmados: window.rsvpChoice==='yes' ? names : []
       })
     }).then(r=>{
-      if(!r.ok)throw new Error('Error');
+      if(!r.ok) throw new Error('Error');
       document.getElementById('rsvpCard').style.display='none';
       const ok=document.getElementById('rsvpOk');
       ok.style.display='block';
@@ -751,8 +868,8 @@ function initMain(){
         document.getElementById('rsvpOkMsg').innerHTML='Lamentamos que no puedas asistir.<br>¡Te llevaremos en el corazón!';
       }
     }).catch(()=>{
-      btn.disabled=false;
-      btn.innerHTML='<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg> Confirmar asistencia';
+      btnEnv.disabled=false;
+      document.getElementById('rsvp-btn-text').textContent='Confirmar asistencia';
       alert('Hubo un error al confirmar. Intenta de nuevo.');
     });
   };
