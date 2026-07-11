@@ -315,6 +315,13 @@ body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',ser
     <div class="orn"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <h1 class="heading" style="color:#722f37"><span style="font-family:'Dancing Script',cursive;font-weight:700">A</span>bigail y Judith</h1>
     <div class="orn bot"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--accent);line-height:1.9;margin-top:24px;opacity:.85;max-width:340px;margin-left:auto;margin-right:auto">
+      El amor nos encontró<br>y nosotras elegimos quedarnos.
+    </p>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;color:var(--text);line-height:1.9;margin-top:16px;opacity:.75;max-width:340px;margin-left:auto;margin-right:auto">
+      Con el corazón lleno de ilusión,<br>te invitamos a ser testigo de nuestra unión,<br>porque las mejores historias se celebran<br>con las personas favoritas.
+    </p>
+    <div class="orn" style="margin-top:24px;margin-bottom:0"><div class="orn-line"></div><div class="orn-diamond-sm"></div><div class="orn-diamond"></div><div class="orn-diamond-sm"></div><div class="orn-line"></div></div>
     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--text);line-height:1.8;margin-top:24px;opacity:.8">
       Sábado, 24 de Octubre de 2026<br>
       Mazatlán, Sinaloa
@@ -772,15 +779,12 @@ function initMain(){
       const inp=document.createElement('input');
       inp.type='text';
       inp.className='rsvp-input rsvp-name-input';
-      inp.placeholder=i===1?(urlPara||'Tu nombre completo'):'Acompañante '+(i-1);
+      inp.placeholder = count === 1 ? 'Tu nombre completo' : 'Invitado ' + i;
       inp.autocomplete='off';
       inp.maxLength=60;
       const idx=i-1;
       if(savedNames[idx]){
         inp.value=savedNames[idx];
-      } else if(i===1 && urlPara){
-        inp.value=urlPara;
-        savedNames[0]=urlPara;
       }
       inp.addEventListener('input', function(){ savedNames[idx] = this.value; });
       c.appendChild(inp);
@@ -861,16 +865,25 @@ function initMain(){
       })
     }).then(r=>{
       if(!r.ok) throw new Error('Error');
-      document.getElementById('rsvpCard').style.display='none';
-      const ok=document.getElementById('rsvpOk');
-      ok.style.display='block';
-      if(window.rsvpChoice==='no'){
-        document.getElementById('rsvpOkMsg').innerHTML='Lamentamos que no puedas asistir.<br>¡Te llevaremos en el corazón!';
+      btnEnv.disabled=false;
+      document.getElementById('rsvp-btn-text').textContent='Actualizar respuesta';
+      const feedEl=document.getElementById('rsvp-feedback');
+      if(feedEl){
+        feedEl.style.display='block';
+        feedEl.style.color=window.rsvpChoice==='yes' ? '#2F5A28' : 'var(--gold)';
+        feedEl.textContent = window.rsvpChoice==='yes'
+          ? '¡Tu asistencia ha sido confirmada! Puedes actualizar tu respuesta si algo cambia.'
+          : 'Hemos registrado que no podrás asistir. Puedes cambiar tu respuesta.';
       }
     }).catch(()=>{
       btnEnv.disabled=false;
       document.getElementById('rsvp-btn-text').textContent='Confirmar asistencia';
-      alert('Hubo un error al confirmar. Intenta de nuevo.');
+      const feedEl=document.getElementById('rsvp-feedback');
+      if(feedEl){
+        feedEl.style.display='block';
+        feedEl.style.color='#9a4a3a';
+        feedEl.textContent='Error de conexión. Intenta de nuevo.';
+      }
     });
   };
 
